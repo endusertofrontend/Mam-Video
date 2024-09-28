@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif; /* a font family I like */
+    background-color: #a0d2eb; /* style found online */
+    color: #000000;
+}
+
+
+button {
+    background-color: rgb(0, 145, 255);
+    color: white; 
+    height: 2rem; 
+    font-weight: bold; 
+    border: 5px solid #0856bc; 
+
+}
+
+.container {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-gap: 1em;
+    /* standard 100px but auto max can incrase; function used;  */
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.heading {
+    grid-row: 1/2; 
+    grid-column: 1/4; 
+    text-align: center;
+}
+
+/* use flex to place img and bio text side by side without
+space between them adjusting with window size*/
+.content {
+    grid-row: 2/3; 
+    grid-column: 1/4;
+    display: flex;
+    align-items: center; 
+    gap: 20px; 
+}
+
+.photo {
+    flex-shrink: 0;
+    max-width: 200px; 
+}
+
+.photo img {
+    width: 100%; 
+    height: auto; 
+    display: block; /* allows for spacing around the img*/
+}
+
+.bio {
+    flex-grow: 1; 
+    padding-left: 10px; 
+    overflow-wrap: break-word; 
+}
+
+
+.reason {
+    grid-row: 3/4; 
+    grid-column: 1/4; 
+}
+
+.technologies {
+    grid-row: 4/5; 
+    grid-column: 1/4; 
+}
+
+.resources {
+    grid-row: 5/6; 
+    grid-column: 1/4; 
+}
+
+
+/* Mobile-friendly layout */
+@media (max-width: 600px) {
+    .content {
+        display: flex;
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center; /* Center-align content */
+    }
+    
+    .photo {
+        max-width: 150px; /* Scale down the image */
+        margin-bottom: 15px; /* Add spacing between the image and text */
+    }
+    
+    .bio {
+        text-align: center; /* Center the text for better readability */
+    }
+}
